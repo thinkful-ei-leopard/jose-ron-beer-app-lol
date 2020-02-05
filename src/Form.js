@@ -20,6 +20,7 @@ export default function Form(props) {
             </select>
             <button type="submit">Search</button>
             </form>
+            <img src="https://www.iamexpat.nl/sites/default/files/styles/article--full/public/oldimages/61a5bc5c144dbfcb481874823cbbf9071438338557.jpg?itok=7RqnOkOt" height="220px" width="320px" alt="beer" className="beerPic" />
         </>
         )
         }}
