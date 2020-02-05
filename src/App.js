@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './Header'
+import Form from './Form'
+import {AppContext} from './AppContext';
+import BeerList from './BeerList';
 
-function App() {
+class App extends React.Component {
+  static contextType = AppContext;
+  render() {
+    console.log(this.context.fetchBooze)
+    const contextValue = {
+      brewery: this.context.brewery,
+      setLang: this.context.fetchBooze,
+    }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider value={contextValue}>
+    <main className='App'>
+      <Header />
+      <Form fetchBooze={this.context.fetchBooze}/> 
+      <BeerList />
+    </main>
+    </AppContext.Provider>
   );
+  }
 }
 
 export default App;
